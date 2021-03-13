@@ -1,6 +1,7 @@
 package com.example.zookeeper;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,5 +13,11 @@ public class ZooController {
     public void addAnimal()
     {
 
+    }
+
+    @GetMapping("/animals")
+    public String getAnimals()
+    {
+        return null;
     }
 }

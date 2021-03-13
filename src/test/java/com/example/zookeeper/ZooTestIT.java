@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -18,10 +19,11 @@ public class ZooTestIT {
     @Test
     public void addAnimalTest() throws Exception {
         mockMvc.perform(post("/animals")
-        .content("")
-        .contentType(MediaType.APPLICATION_JSON)).andExpect(
-                status().isCreated()
+        .content("").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated()
         );
+        mockMvc.perform(get("/animals"))
+                .andExpect(status().isOk());
     }
 
 }
