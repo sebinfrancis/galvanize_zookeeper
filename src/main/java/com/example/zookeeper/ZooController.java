@@ -14,9 +14,11 @@ public class ZooController {
     }
     @PostMapping("/animals")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addAnimal(@RequestBody AnimalDto animalDto)
+    public void addAnimal(@RequestBody ArrayList<AnimalDto> animalDtos)
     {
-        animals.add(animalDto);
+        animalDtos.forEach((animal) -> {
+            animals.add(animal);
+        });
     }
 
     @GetMapping("/animals")
